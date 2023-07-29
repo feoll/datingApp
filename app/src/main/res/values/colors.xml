@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="gray">#757575</color>
+    <color name="gray_light">#eeeeee</color>
+    <color name="pink">#FB4570</color>
+
+
+    <color name="bottom_nav_color_inactive">#9ba9b6</color>
+    <color name="bottom_nav_color_active">#FB4570</color>
+    <color name="bottom_nav_ripple_color">#0DFB4570</color>
+
+
+    <color name="card_chip_background">#1BFB4570</color>
+    <color name="card_chip_text">#FB4570</color>
+    <color name="count_image_background">#DD000000</color>
+    <color name="count_image_text">#B9FFFFFF</color>
+    <color name="card_bottom_side_tint">#B9000000</color>
+    <color name="light_gray">#B9FFFFFF</color>
+    <color name="like_tint">#FB4570</color>
+    <color name="dislike_tint">#1AB7D5</color>
+
+</resources>

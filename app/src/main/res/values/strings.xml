@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">Deck</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="bottom_menu_title_card">Карточки</string>
+    <string name="bottom_menu_title_chat">Чат</string>
+    <string name="bottom_menu_title_profile">Профиль</string>
+    <string name="no_category_data">На сегодня список закончился.\nПриходите завтра</string>
+    <string name="about_me">Обо мне</string>
+    <string name="relation_goal">Цели в отношениях</string>
+    <string name="more_about_me">Больше обо мне</string>
+    <string name="accept_privacy_policy">Регистрируясь, вы принимаете наши <u>условия и политику конфиденциальности</u></string>
+    <string name="slogan">Просматривайте карточки и найдите свою <b><font fgcolor="#FB4570">настоящую любовь</font></b></string>
+    <string name="do_you_have_account">У вас уже есть учетная запись?</string>
+    <string name="onboarding_app_name">DECK</string>
+    <string name="sign_up">Создать аккаунт</string>
+    <string name="log_in">Войти</string>
+    <string name="password">Пароль</string>
+    <string name="email">Email</string>
+    <string name="log_in_action">Войти</string>
+    <string name="forgot_password">Забыли пароль?</string>
+    <string name="log_in_title">Вход</string>
+    <string name="incorrect_email">Неправильный адрес электронной почты</string>
+    <string name="in_development">В разработке</string>
+    <string name="password_cant_be_empty">Пароль не может быть пустым</string>
+    <string name="name">Имя</string>
+    <string name="whats_your_name">Как Вас зовут?</string>
+    <string name="whats_your_name_description">Имя будет показано всем участникам</string>
+    <string name="button_next">Далее</string>
+    <string name="age_description">Возраст будет показан всем участникам</string>
+    <string name="age_title">Сколько Вам лет?</string>
+    <string name="about_description">Информация будет показана всем участникам</string>
+    <string name="about_title">Расскажите о себе</string>
+    <string name="about_hint">О себе</string>
+    <string name="category_description">Информация будет показана всем участникам</string>
+    <string name="gender_title">Какого Вы пола?</string>
+    <string name="gender_description">Пол будет показан всем участникам</string>
+    <string name="checked_text_view_man">Парень</string>
+    <string name="checked_text_view_woman">Девушка</string>
+    <string name="location_title">Где Вы проживаете?</string>
+    <string name="location_description">Информация будет показана всем участникам</string>
+    <string name="country_hint">Страна</string>
+    <string name="city_hint">Город</string>
+</resources>
