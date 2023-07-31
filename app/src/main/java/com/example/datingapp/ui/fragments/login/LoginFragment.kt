@@ -65,6 +65,7 @@ class LoginFragment: BaseFragment<FragmentLoginBinding>() {
             closeKeyboard(requireActivity())
             findNavController().navigateUp()
         }
+
         binding.logInButton.setOnClickListener {
             val email = binding.emailEditText.text.toString().trim()
             val password = binding.emailEditText.text.toString()
