@@ -3,6 +3,7 @@ package com.example.datingapp.utils
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.TextView
+import androidx.core.content.res.ResourcesCompat
 import com.example.datingapp.R
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup

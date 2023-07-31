@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    app:chipStrokeColor="@android:color/transparent"
     android:checkable="true"
     android:textColor="@drawable/profile_edit_chip_text"
     app:chipBackgroundColor="@drawable/profile_edit_chip_background"
+    app:chipStrokeColor="@android:color/transparent"
     tools:text="Книги" />

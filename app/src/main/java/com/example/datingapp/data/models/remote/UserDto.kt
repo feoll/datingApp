@@ -11,7 +11,5 @@ data class UserDto(
     @SerializedName("age")
     val age: Int,
     @SerializedName("email")
-    val email: String,
-    @SerializedName("likeProviders")
-    val likeProviders: List<Any>
+    val email: String
 )

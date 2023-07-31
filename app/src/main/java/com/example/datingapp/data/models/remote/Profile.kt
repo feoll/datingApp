@@ -14,8 +14,6 @@ data class Profile(
     val about: String?,
     @SerializedName("userDto")
     val userDto: UserDto,
-    @SerializedName("countryDto")
-    val countryDto: CountryDto?,
     @SerializedName("cityDto")
     val cityDto: CityDto?,
     @SerializedName("zodiacSignDto")

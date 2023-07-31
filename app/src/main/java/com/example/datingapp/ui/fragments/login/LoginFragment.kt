@@ -41,6 +41,8 @@ class LoginFragment: BaseFragment<FragmentLoginBinding>() {
             } else {
                 binding.passwordTextInputLayout.isErrorEnabled = false
             }
+
+
         }
         binding.forgotPassword.setOnClickListener {
             Toast.makeText(requireContext(), getString(R.string.in_development), Toast.LENGTH_SHORT).show()

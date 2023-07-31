@@ -148,9 +148,7 @@ class ProfileEditFragment : BaseFragment<FragmentProfileEditBinding>() {
     private fun uploadFile(uri: Uri) {
         lifecycleScope.launch {
             Log.d("MyActivity", "On upload")
-            withContext(Dispatchers.IO) {
 
-            }
             val stream = requireContext().contentResolver.openInputStream(uri) ?: return@launch
             val request = stream.use {
                 it.readBytes().toRequestBody("image/*".toMediaTypeOrNull())
@@ -163,7 +161,7 @@ class ProfileEditFragment : BaseFragment<FragmentProfileEditBinding>() {
                 request
             )
             try {
-                api.uploadImage(filePart)
+//                api.uploadImage(filePart)
             }
             catch(e: Exception) { // if something happens to the network
                 e.printStackTrace()
