@@ -1,70 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    tools:context=".ui.fragments.registration.pagers.GenderFragment">
-
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp"
+    tools:context=".ui.fragments.profile_filler.pages.GenderFragment">
 
 
     <TextView
         android:id="@+id/gender_title"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
         android:fontFamily="@font/montserrat"
         android:text="@string/gender_title"
         android:textColor="?android:textColorPrimary"
         android:textSize="28sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/guidelineStart"
-        app:layout_constraintTop_toBottomOf="@+id/back_button" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
         android:id="@+id/gender_description"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/montserrat"
         android:text="@string/gender_description"
         android:textColor="@color/gray"
-        android:textSize="16sp" />
-
-
-    <CheckedTextView
-        android:id="@+id/checkbox_man"
-        android:layout_marginTop="150dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/checked_text_view_man"
-        android:fontFamily="@font/montserrat"
-        android:textStyle="bold"
         android:textSize="16sp"
-        android:gravity="center"
-        android:padding="25dp"
-        android:background="@drawable/checked_text_view_background_selector"
-        android:checkMark="?android:listChoiceIndicatorSingle" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gender_title" />
 
-    <CheckedTextView
-        android:id="@+id/checkbox_woman"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_width="match_parent"
+
+    <LinearLayout
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/checked_text_view_woman"
-        android:fontFamily="@font/montserrat"
-        android:textStyle="bold"
-        android:textSize="16sp"
-        android:gravity="center"
-        android:padding="25dp"
-        android:background="@drawable/checked_text_view_background_selector"
-        android:checkMark="?android:listChoiceIndicatorSingle" />
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gender_description"
+        app:layout_constraintVertical_bias="0.2">
 
-</LinearLayout>
+        <CheckedTextView
+            android:id="@+id/checkbox_man"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/checked_text_view_background_selector"
+            android:checkMark="?android:listChoiceIndicatorSingle"
+            android:fontFamily="@font/montserrat"
+            android:gravity="center"
+            android:padding="25dp"
+            android:text="@string/checked_text_view_man"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <CheckedTextView
+            android:id="@+id/checkbox_woman"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/checked_text_view_background_selector"
+            android:checkMark="?android:listChoiceIndicatorSingle"
+            android:fontFamily="@font/montserrat"
+            android:gravity="center"
+            android:padding="25dp"
+            android:text="@string/checked_text_view_woman"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/next_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@drawable/button_state_background"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="@string/button_next"
+        android:textColor="@drawable/button_text_state_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

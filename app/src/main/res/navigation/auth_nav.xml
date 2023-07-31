@@ -9,12 +9,16 @@
         android:id="@+id/loginFragment"
         android:name="com.example.datingapp.ui.fragments.login.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" />
-    <fragment
-        android:id="@+id/registrationFragment"
-        android:name="com.example.datingapp.ui.fragments.registration.RegistrationFragment"
-        android:label="fragment_registration"
-        tools:layout="@layout/fragment_registration" />
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_profileFillerFragment"
+            app:destination="@id/profileFillerFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/freeze"
+            app:popExitAnim="@anim/to_right"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
     <fragment
         android:id="@+id/onboardingFragment"
         android:name="com.example.datingapp.ui.fragments.onboarding.OnboardingFragment"
@@ -27,10 +31,34 @@
             app:exitAnim="@anim/freeze"
             app:popExitAnim="@anim/to_right" />
         <action
-            android:id="@+id/action_onboardingFragment_to_registrationFragment"
-            app:destination="@id/registrationFragment"
+            android:id="@+id/action_onboardingFragment_to_registrationSlideFragment"
+            app:destination="@id/registrationSlideFragment"
             app:enterAnim="@anim/from_right"
             app:exitAnim="@anim/freeze"
             app:popExitAnim="@anim/to_right" />
+        <action
+            android:id="@+id/action_onboardingFragment_to_profileFillerFragment"
+            app:destination="@id/profileFillerFragment"
+            app:popUpTo="@id/onboardingFragment"
+            app:popUpToInclusive="true" />
     </fragment>
+    <fragment
+        android:id="@+id/registrationSlideFragment"
+        android:name="com.example.datingapp.ui.fragments.registration.RegistrationFragment"
+        android:label="fragment_registration_slide"
+        tools:layout="@layout/fragment_registration" >
+        <action
+            android:id="@+id/action_registrationSlideFragment_to_profileFillerFragment"
+            app:destination="@id/profileFillerFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/freeze"
+            app:popExitAnim="@anim/to_right"
+            app:popUpTo="@id/registrationSlideFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFillerFragment"
+        android:name="com.example.datingapp.ui.fragments.profile_filler.ProfileFillerFragment"
+        android:label="fragment_profile_filler"
+        tools:layout="@layout/fragment_profile_filler" />
 </navigation>

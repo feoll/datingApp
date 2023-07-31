@@ -11,6 +11,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.example.datingapp.R
+import com.example.datingapp.data.mappers.toProfileCard
+import com.example.datingapp.data.models.remote.Profile
 import com.example.datingapp.databinding.FragmentProfileBinding
 import com.example.datingapp.ui.adapters.card.ProfileImageViewPagerAdapter
 import com.example.datingapp.ui.fragments.base.BaseFragment
@@ -28,21 +30,48 @@ import kotlinx.coroutines.launch
 class ProfileFragment : BaseFragment<FragmentProfileBinding>() {
 
     private val imageAdapter by lazy { ProfileImageViewPagerAdapter() }
+    private val viewModel by activityViewModels<ProfileViewModel>()
 
     override fun getViewBinding() = FragmentProfileBinding.inflate(layoutInflater)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        initProfileInformation()
-        setupHobbyChips(profile.hobby)
-        setupMoreAboutMeChips(profile)
-        setupGoalChip(profile.goal)
-        fillImageAdapter(profile)
-        setupImageViewPager()
-        setupListeners()
+
+        subscribeToProfileEvents()
 
     }
+
+    private fun subscribeToProfileEvents() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.myProfileState.collect { resource ->
+                when(resource) {
+                    is Resource.Loading -> {
+
+                    }
+
+                    is Resource.Success -> {
+                        val profileCard = resource.data.toProfileCard()
+                        Log.d("ProfileFragment",  profileCard.toString())
+                        initProfileInformation(profileCard)
+                        setupHobbyChips(profileCard.hobby)
+                        setupMoreAboutMeChips(profileCard)
+                        setupGoalChip(profileCard.goal)
+                        fillImageAdapter(profileCard)
+                        setupImageViewPager()
+                        setupListeners()
+                    }
+
+                    is Resource.Error -> {
+
+                    }
+
+                    else -> Unit
+                }
+            }
+        }
+    }
+
     private fun fillImageAdapter(profile: ProfileCard) {
         val images = mutableListOf<Image>()
         profile.imageUrls.forEachIndexed { index, url ->
@@ -57,7 +86,7 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>() {
         binding.viewPagerIndicator.setViewPager(binding.imageViewPager)
     }
 
-    private fun initProfileInformation() {
+    private fun initProfileInformation(profile: ProfileCard) {
         profile.let { profile ->
             binding.name.text = profile.name
             profile.height?.let {
@@ -83,8 +112,8 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>() {
     }
     private fun setupListeners() {
         binding.editProfile.setOnClickListener {
-            val direction = ProfileFragmentDirections.actionProfileFragmentToProfileEditFragment(profile)
-            findNavController().navigate(direction)
+//            val direction = ProfileFragmentDirections.actionProfileFragmentToProfileEditFragment(profile)
+//            findNavController().navigate(direction)
         }
     }
 
@@ -135,32 +164,32 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>() {
         }
     }
 
-    private val profile = ProfileCard(
-        1,
-        1,
-        178,
-        "Female",
-        "Алина",
-        18,
-        "Звезда кантри-музыки. Обожаю гулять вечером по парку. Занимаюсь спортом и программирую на Sping Java. Программирую примерно 40 лет потому что потому, хе-хе",
-        "Беларусь",
-        "Минск",
-        "Овен",
-        "Найти партнера жизни",
-        "Не занимаюсь спортом",
-        "Иногда пьющий",
-        "Регулярно курящий",
-        "Аллергичен на животных",
-        listOf("Уборка", "Игры", "Танцы", "Фотография", "Кино"),
-        listOf(
-            "https://sun9-79.userapi.com/impg/TejZrgXyWcVMbm8OGMLdOd6vbI7pZSKRxGtV1w/Hk4rWw5PzSw.jpg?size=1440x1439&quality=95&sign=41838d9379c00e56251dbeed0ac3a2ed&type=album",
-            "https://sun9-65.userapi.com/impg/v2XRhsGsKvSD2xGDsb_WS0mfBrk0yy0jjLOayw/TPSj4eMIyuU.jpg?size=720x957&quality=95&sign=6d3123d435a89809ec1f00e7b56814ed&type=album",
-            "https://sun9-22.userapi.com/impg/g0gRc-BI72VGLtjSO5g4mVLkgcu9ZCt4OnswWw/hN8Jr06ZWbM.jpg?size=2560x2560&quality=95&sign=c84ce23015fd829fb39c9ba284d6cc1e&type=album"
-        ),
-        listOf(
-            "L6B3{E5i9:rp03rCR?cH}+t7T1j;",
-            "L8I4ChNG1a~V00nORis9GCr?^QM{",
-            "L9AJ+irq~UM|?c\$|n%jZx]WBWCRj"
-        )
-    )
+//    private val profile = ProfileCard(
+//        1,
+//        1,
+//        178,
+//        "Female",
+//        "Алина",
+//        18,
+//        "Звезда кантри-музыки. Обожаю гулять вечером по парку. Занимаюсь спортом и программирую на Sping Java. Программирую примерно 40 лет потому что потому, хе-хе",
+//        "Беларусь",
+//        "Минск",
+//        "Овен",
+//        "Найти партнера жизни",
+//        "Не занимаюсь спортом",
+//        "Иногда пьющий",
+//        "Регулярно курящий",
+//        "Аллергичен на животных",
+//        listOf("Уборка", "Игры", "Танцы", "Фотография", "Кино"),
+//        listOf(
+//            "https://sun9-79.userapi.com/impg/TejZrgXyWcVMbm8OGMLdOd6vbI7pZSKRxGtV1w/Hk4rWw5PzSw.jpg?size=1440x1439&quality=95&sign=41838d9379c00e56251dbeed0ac3a2ed&type=album",
+//            "https://sun9-65.userapi.com/impg/v2XRhsGsKvSD2xGDsb_WS0mfBrk0yy0jjLOayw/TPSj4eMIyuU.jpg?size=720x957&quality=95&sign=6d3123d435a89809ec1f00e7b56814ed&type=album",
+//            "https://sun9-22.userapi.com/impg/g0gRc-BI72VGLtjSO5g4mVLkgcu9ZCt4OnswWw/hN8Jr06ZWbM.jpg?size=2560x2560&quality=95&sign=c84ce23015fd829fb39c9ba284d6cc1e&type=album"
+//        ),
+//        listOf(
+//            "L6B3{E5i9:rp03rCR?cH}+t7T1j;",
+//            "L8I4ChNG1a~V00nORis9GCr?^QM{",
+//            "L9AJ+irq~UM|?c\$|n%jZx]WBWCRj"
+//        )
+//    )
 }

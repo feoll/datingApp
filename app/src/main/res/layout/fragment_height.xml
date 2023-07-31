@@ -6,15 +6,14 @@
     android:layout_height="match_parent"
     android:paddingStart="16dp"
     android:paddingEnd="16dp"
-
-    tools:context=".ui.fragments.registration.pages.AgeFragment">
+    tools:context=".ui.fragments.profile_filler.pages.HeightFragment">
 
     <TextView
-        android:id="@+id/age_title"
+        android:id="@+id/height_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/montserrat"
-        android:text="@string/age_title"
+        android:text="@string/height_title"
         android:textColor="?android:textColorPrimary"
         android:textSize="28sp"
         android:textStyle="bold"
@@ -24,31 +23,31 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/age_description"
+        android:id="@+id/height_description"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/montserrat"
-        android:text="@string/age_description"
+        android:text="@string/height_description"
         android:textColor="@color/gray"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/age_title" />
+        app:layout_constraintTop_toBottomOf="@+id/height_title" />
 
 
     <com.shawnlin.numberpicker.NumberPicker
-        android:id="@+id/age_picker"
+        android:id="@+id/height_picker"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/age_description"
+        app:layout_constraintTop_toBottomOf="@+id/height_description"
         app:np_dividerColor="@android:color/transparent"
-        app:np_max="99"
+        app:np_max="250"
         app:np_maxFlingVelocityCoefficient="2"
-        app:np_min="18"
+        app:np_min="130"
         app:np_selectedTextColor="?android:textColorPrimary"
         app:np_selectedTextSize="30sp"
         app:np_textColor="?android:textColorPrimary"

@@ -3,11 +3,15 @@ package com.example.datingapp.di.modules
 import android.content.Context
 import com.example.datingapp.data.api.DeckApi
 import com.example.datingapp.data.common.BASE_URL
+import com.example.datingapp.data.manager.SessionManager
+import com.example.datingapp.data.manager.SessionManagerImpl
 import com.example.datingapp.data.repositories.FakeSwipeRepository
-import com.example.datingapp.data.repositories.ProfileRepository
-import com.example.datingapp.data.repositories.ProfileRepositoryImpl
+import com.example.datingapp.data.repositories.profile.ProfileRepository
+import com.example.datingapp.data.repositories.profile.ProfileRepositoryImpl
 import com.example.datingapp.data.repositories.SwipeRepository
 import com.example.datingapp.data.repositories.SwipeRepositoryImpl
+import com.example.datingapp.data.repositories.authentication.AuthenticationRepository
+import com.example.datingapp.data.repositories.authentication.AuthenticationRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -41,28 +45,49 @@ class Module {
             .create(DeckApi::class.java)
     }
 
-    @Provides
-    @Singleton
-    fun provideSwipeRepository(
-        @ApplicationContext context: Context,
-        api: DeckApi
-    ): SwipeRepository {
-        return SwipeRepositoryImpl(context = context, api = api)
-    }
-
 //    @Provides
 //    @Singleton
-//    fun provideSwipeRepository(): SwipeRepository {
-//        return FakeSwipeRepository()
+//    fun provideSwipeRepository(
+//        @ApplicationContext context: Context,
+//        api: DeckApi
+//    ): SwipeRepository {
+//        return SwipeRepositoryImpl(context = context, api = api)
 //    }
+
+    @Provides
+    @Singleton
+    fun provideSwipeRepository(): SwipeRepository {
+        return FakeSwipeRepository()
+    }
 
     @Provides
     @Singleton
     fun provideProfileRepository(
         @ApplicationContext context: Context,
-        api: DeckApi
+        api: DeckApi,
+        sessionManager: SessionManager
     ): ProfileRepository {
-        return ProfileRepositoryImpl(context = context, api = api)
+        return ProfileRepositoryImpl(context = context, api = api, sessionManager = sessionManager)
+    }
+
+    @Provides
+    @Singleton
+    fun provideSessionManager(@ApplicationContext context: Context): SessionManager {
+        return SessionManagerImpl(context = context)
+    }
+
+    @Provides
+    @Singleton
+    fun provideAuthenticationRepository(
+        @ApplicationContext context: Context,
+        api: DeckApi,
+        sessionManager: SessionManager
+    ): AuthenticationRepository {
+        return AuthenticationRepositoryImpl(
+            context = context,
+            api = api,
+            sessionManager = sessionManager
+        )
     }
 
 }

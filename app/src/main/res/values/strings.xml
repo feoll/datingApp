@@ -41,4 +41,17 @@
     <string name="location_description">Информация будет показана всем участникам</string>
     <string name="country_hint">Страна</string>
     <string name="city_hint">Город</string>
+    <string name="repeat_password">Повторите пароль</string>
+    <string name="create_account">Создание аккаунта</string>
+    <string name="password_doesnt_match">Пароль не совпадает</string>
+    <string name="email_title">Создание аккаунта</string>
+    <string name="email_description">Данные будут использованы для получения доступа к учетной записи</string>
+    <string name="no_network_connection">Нет интернет соединения</string>
+    <string name="try_again_button">Повторить попытку</string>
+    <string name="failed_to_upload_information">Не удалось загрузить информацию</string>
+    <string name="create_profile">Создать профиль</string>
+    <string name="not_authorized">Вы не авторизованы</string>
+    <string name="height_title">Какого Вы роста?</string>
+    <string name="height_description">Рост будет показан всем участникам</string>
+    <string name="category_title_text">Выберите аттрибуты</string>
 </resources>
