@@ -47,6 +47,7 @@ class LoginFragment: BaseFragment<FragmentLoginBinding>() {
 
                     is Resource.Loading -> {
 
+
                     }
 
                     is Resource.Error -> {
